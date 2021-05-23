@@ -1,0 +1,362 @@
+/*--------------------------------
+General Styling 
+--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	line-height: 30px;
+}
+.container {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+
+
+.my_btn{
+	padding: 12px 23px;
+	border: 1px solid  #ededed;
+	background-color: transparent;
+	color: #000;
+	border-radius: 10px;
+}
+
+.my_btn:hover .my_btn.active {
+	background-color: transparent;
+    color: #000;
+	cursor: pointer;
+}
+
+
+.my_btn{
+	padding: 12px 23px;
+	border: 1px solid  #ededed;
+	background-color: transparent;
+	color: #000;
+	border-radius: 10px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.1em solid #000;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+    border-radius: 50px; 
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: MediumSeaGreen;
+  border-color: MediumSeaGreen;
+  color: #fff;
+}
+
+
+
+
+
+  $white: #fff;
+  $black: #000;
+
+  $light-grey: #969696;
+  $light-grey-2: #888;
+  $light-grey-3: #595959;
+
+  $dark-blue: #003D7A;
+
+  :root {
+
+      //Form  Color
+      --form_background-color: #{$white};
+
+      //Field Colors
+      --form__field_border-color: #{$light-grey};
+      --form__field_background-color: #{$white};
+
+      //Fieldset Colors
+      --form__fieldset_background-color: #{$white};
+      --form__fieldset_border-color: #{$light-grey};
+
+      //Legend Colors
+      --form__legend_color: #{$black};
+
+      //Label Colors
+      --form__label_color: #{$black};
+      --form__label__type_color: #{$light-grey-3};
+
+      //Radio Component Colors
+      --form__radio_label_background-color: #{$light-grey};
+      --form__radio_label_border-color: #{$white};
+
+      //Radio Checked Colors
+      --form__radio_label_checked_background-color: #{$white};
+      --form__radio_label_checked_border-color: #{$light-grey};
+
+      //Checkbox Colors
+      --form__checkbox_label_background-color: #{$light-grey};
+      --form__checkbox_label_border-color: #{$white};
+
+      //Checkbox Checked Colors
+      --form__checkbox_label_checked_background-color: #{$white};
+      --form__checkbox_label_checked_border-color: #{$light-grey};
+
+      //Select Component Colors
+      --form__select_border-color: #{$light-grey};
+
+      //Misc
+      --form__focus-color: #{$dark-blue};
+  }
+
+  @mixin form__component_focus {
+      border: 1px solid var(--form__focus-color);
+      outline: none;
+  }
+
+  @mixin form__label_type {
+      font-size: .6rem;
+      color: var(--form__label__type_color);
+  }
+
+  @mixin form__label_radio-checkbox-spacing {
+      margin:0 .3rem .3rem 0;
+  }
+
+
+  .container {
+      margin: 0 auto;
+      width: 50%;
+
+  }
+
+  * {
+      box-sizing: border-box;
+      font-family: Helvetica, Arial, sans-serif;
+  }
+
+  body {
+      padding: 0;
+      margin: 0;
+  }
+
+  .form {
+      background-color: var(--form_background-color);
+
+      &__title {
+          font-size: 2rem;
+      }
+      &__section {
+          margin-bottom: 1rem;
+      }
+      &__fieldset{
+          background-color:var(--form__fieldset_background-color);
+          border: 1px solid var(--form__fieldset_border-color);
+          border-radius: .5rem;
+          padding: 1rem 1rem .5rem 1rem;
+      }
+
+      &__fieldset_shadow {
+          box-shadow: 5px 4px 3px 0px rgba(0, 0, 0, 0.03), 
+                      5px 4px 3px 1px rgba(0, 0, 0, 0.02), 
+                      5px 4px 3px 4px rgba(0, 0, 0, 0.01);
+          transition: box-shadow 300ms linear;
+
+          &:hover {
+              box-shadow: 7px 5px 3px 0px rgba(0, 0, 0, 0.03), 
+                          7px 5px 3px 1px rgba(0, 0, 0, 0.02), 
+                          7px 5px 3px 4px rgba(0, 0, 0, 0.01);
+          }
+      }
+
+
+
+      &__legend {
+          padding: 0;
+          font-size: 1.3rem;
+          color: var(--form__legend_color);
+      }
+
+      &__group{
+          margin-bottom: 1rem;
+          display: flex;
+          flex-direction: column;
+
+          &_inline {
+              flex-direction: row;
+          }
+      }
+
+      &__label {
+          font-size: .8rem;
+          color: var(--form__label_color);
+          letter-spacing: .03rem;
+          margin: 0;
+          padding-bottom: .5rem;
+
+          &_type_optional::after{
+              content: ' (Optional)';
+              @include form__label_type;
+          }
+
+          &_type_required::after{
+              content: ' (Required)';
+              @include form__label_type;
+          }
+
+          &_type_radio::after {
+              content: " (Select One)";
+              @include form__label_type;
+          }
+
+          &_type_checkbox::after {
+              content: " (select Multiple)";
+              @include form__label_type;
+          }
+
+      }
+
+      &__field {
+          border-radius: .3rem;
+          padding: .3rem 0 .3rem .5rem;
+          background-color: var(--form__field_background-color);
+          border: 1px solid var(--form__field_border-color);
+
+          &_shadow_inset {
+              box-shadow: inset 5px 4px 3px 0px rgba(0, 0, 0, 0.03), 
+              inset 5px 4px 3px 1px rgba(0, 0, 0, 0.02), 
+              inset 5px 4px 3px 4px rgba(0, 0, 0, 0.01);
+          }
+
+      }
+
+      &__field:focus {
+         @include form__component_focus;
+      }
+
+      &__radio-label {
+          padding: .5rem 1rem;
+          @include form__label_radio-checkbox-spacing;
+          border: 1px solid var(--form__radio_label_border-color);
+          background-color: var(--form__radio_label_background-color);
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+      }
+
+      &__radio {
+          opacity: 0;
+          position: absolute;
+
+          &:checked + &-label {
+            background-color: var(--form__radio_label_checked_background-color);
+            border: 1px solid var(--form__radio_label_checked_border-color);
+          }
+          &:focus + &-label {
+              @include form__component_focus;
+          }
+      }
+
+      &__checkbox-label {
+          padding: .5rem 1rem;
+          @include form__label_radio-checkbox-spacing;
+          border: 1px solid var(--form__checkbox_label_border-color);
+          background-color: var(--form__checkbox_label_background-color);
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+      }
+
+      &__checkbox {
+          opacity: 0;
+          position: absolute;
+
+          &:checked + &-label {
+            background-color: var(--form__checkbox_label_checked_background-color);
+            border: 1px solid var(--form__checkbox_label_checked_border-color);
+          }
+
+          &:focus + &-label {
+              @include form__component_focus;
+          }
+
+      }
+      &__select {
+          padding: .3rem 0 .3rem .5rem;
+          border: 1px solid var(--form__select_border-color);
+          border-radius: .3rem;
+          position: relative;
+
+          &:focus{
+              @include form__component_focus;
+          }
+      }
+
+  }
+
+  .button{
+      background-color: #eee;
+      border: 1px solid #ddd;
+      border-radius: .3rem;
+      padding: .5rem 2rem;
+      cursor: pointer;
+
+      &:focus, &:hover {
+          background-color: #ddd;
+          border: 1px solid #ddd;
+          border-radius: .3rem;
+          outline: none;
+      }
+
+      &_primary {
+          background-color: #2c406e;
+          border: 1px solid #202e4e;
+          color: #fff;
+
+          &:focus, &:hover {
+              background-color: #2a3c66;
+              border: 1px solid #202e4e;
+              outline: none;
+          }
+      }
+
+      &_shadow {
+              box-shadow: 5px 4px 3px 0px rgba(0, 0, 0, 0.03), 
+                          5px 4px 3px 1px rgba(0, 0, 0, 0.02), 
+                          5px 4px 3px 4px rgba(0, 0, 0, 0.01);
+              transition: box-shadow 300ms linear;
+
+          &:hover {
+                  box-shadow: 7px 5px 3px 0px rgba(0, 0, 0, 0.03), 
+                              7px 5px 3px 1px rgba(0, 0, 0, 0.02), 
+                              7px 5px 3px 4px rgba(0, 0, 0, 0.01);
+          }
+      }
+  }
+
+  @media screen and (max-width: 700px){
+      .container{
+          width: 90%;
+      }
+  } 
